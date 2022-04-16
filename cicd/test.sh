@@ -47,7 +47,7 @@ ls -al artifacts
 # ------------------------------------------------------------------------
 
 hub release create v${VERSION} --message="Release v${VERSION}" \
-   -a artifacts/something-${VERSION}.zip
+   -a artifacts/something-${VERSION}.zip \
    -a artifacts/another-${VERSION}.zip
 
 # eof
