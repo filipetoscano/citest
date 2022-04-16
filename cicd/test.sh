@@ -20,6 +20,9 @@ fi
 cd "$(dirname ${SCRIPT_PATH})" > /dev/null
 cd ..
 
+export VERSION=${GITHUB_REF##*/v}
+echo ${VERSION}
+
 
 #
 # Check which env variables are defined
@@ -34,8 +37,17 @@ printenv
 mkdir -p artifacts
 rm -f artifacts/*.*
 
-echo "Hello" > artifacts/something.zip
-echo "World" > artifacts/another.zip
+echo "Hello" > artifacts/something-${VERSION}.zip
+echo "World" > artifacts/another-${VERSION}.zip
 ls -al artifacts
+
+
+#
+# Release
+# ------------------------------------------------------------------------
+
+hub release create v${VERSION} \
+   -a artifacts/something-${VERSION}.zip
+   -a artifacts/another-${VERSION}.zip
 
 # eof
