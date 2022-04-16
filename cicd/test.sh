@@ -34,8 +34,8 @@ printenv
 mkdir -p artifacts
 rm -f artifacts/*.*
 
-touch artifacts/something.zip
-touch artifacts/another.zip
+echo "Hello" > artifacts/something.zip
+echo "World" > artifacts/another.zip
 ls -al artifacts
 
 # eof
