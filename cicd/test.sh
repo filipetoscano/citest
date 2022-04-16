@@ -27,4 +27,15 @@ cd ..
 printenv
 
 
+#
+# Create some dummy artifacts
+# ------------------------------------------------------------------------
+
+mkdir -p artifacts
+rm -f artifacts/*.*
+
+touch something.zip
+touch another.zip
+ls -al artifacts/*.*
+
 # eof
